@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D43E22991F21A98200DA3E34 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D43E22981F21A98200DA3E34 /* AFNetworking.framework */; };
+		D43E229B1F21A98800DA3E34 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D43E229A1F21A98800DA3E34 /* SwiftyJSON.framework */; };
+		D43E22A11F33EA8100DA3E34 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43E22A01F33EA8100DA3E34 /* Job.swift */; };
 		D482C98D1F1DE2E500A95E24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D482C98C1F1DE2E500A95E24 /* AppDelegate.swift */; };
 		D482C98F1F1DE2E500A95E24 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D482C98E1F1DE2E500A95E24 /* ViewController.swift */; };
 		D482C9921F1DE2E500A95E24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D482C9901F1DE2E500A95E24 /* Main.storyboard */; };
@@ -15,6 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D43E22981F21A98200DA3E34 /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = Carthage/Build/iOS/AFNetworking.framework; sourceTree = "<group>"; };
+		D43E229A1F21A98800DA3E34 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		D43E22A01F33EA8100DA3E34 /* Job.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Job.swift; path = ../Job.swift; sourceTree = "<group>"; };
 		D482C9891F1DE2E500A95E24 /* Internship Posting App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Internship Posting App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D482C98C1F1DE2E500A95E24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D482C98E1F1DE2E500A95E24 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,17 +35,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D43E22991F21A98200DA3E34 /* AFNetworking.framework in Frameworks */,
+				D43E229B1F21A98800DA3E34 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D43E22971F21A98200DA3E34 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D43E229A1F21A98800DA3E34 /* SwiftyJSON.framework */,
+				D43E22981F21A98200DA3E34 /* AFNetworking.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D482C9801F1DE2E500A95E24 = {
 			isa = PBXGroup;
 			children = (
 				D482C98B1F1DE2E500A95E24 /* Internship Posting App */,
 				D482C98A1F1DE2E500A95E24 /* Products */,
+				D43E22971F21A98200DA3E34 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +72,7 @@
 		D482C98B1F1DE2E500A95E24 /* Internship Posting App */ = {
 			isa = PBXGroup;
 			children = (
+				D43E22A01F33EA8100DA3E34 /* Job.swift */,
 				D482C98C1F1DE2E500A95E24 /* AppDelegate.swift */,
 				D482C98E1F1DE2E500A95E24 /* ViewController.swift */,
 				D482C9901F1DE2E500A95E24 /* Main.storyboard */,
@@ -74,6 +93,7 @@
 				D482C9851F1DE2E500A95E24 /* Sources */,
 				D482C9861F1DE2E500A95E24 /* Frameworks */,
 				D482C9871F1DE2E500A95E24 /* Resources */,
+				D43E229D1F21AC9700DA3E34 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -131,12 +151,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		D43E229D1F21AC9700DA3E34 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/AFNetworking.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D482C9851F1DE2E500A95E24 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				D482C98F1F1DE2E500A95E24 /* ViewController.swift in Sources */,
+				D43E22A11F33EA8100DA3E34 /* Job.swift in Sources */,
 				D482C98D1F1DE2E500A95E24 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,6 +301,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "Internship Posting App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Internship-Posting-App";
@@ -274,6 +317,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "Internship Posting App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Internship-Posting-App";
@@ -301,6 +348,7 @@
 				D482C99D1F1DE2E500A95E24 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
