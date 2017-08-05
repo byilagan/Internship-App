@@ -10,8 +10,10 @@
 		D43E22991F21A98200DA3E34 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D43E22981F21A98200DA3E34 /* AFNetworking.framework */; };
 		D43E229B1F21A98800DA3E34 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D43E229A1F21A98800DA3E34 /* SwiftyJSON.framework */; };
 		D43E22A11F33EA8100DA3E34 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43E22A01F33EA8100DA3E34 /* Job.swift */; };
+		D43E22A51F3409CE00DA3E34 /* JobCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43E22A41F3409CE00DA3E34 /* JobCell.swift */; };
+		D43E22A71F35546C00DA3E34 /* JobDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43E22A61F35546C00DA3E34 /* JobDetailsController.swift */; };
 		D482C98D1F1DE2E500A95E24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D482C98C1F1DE2E500A95E24 /* AppDelegate.swift */; };
-		D482C98F1F1DE2E500A95E24 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D482C98E1F1DE2E500A95E24 /* ViewController.swift */; };
+		D482C98F1F1DE2E500A95E24 /* JobListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D482C98E1F1DE2E500A95E24 /* JobListController.swift */; };
 		D482C9921F1DE2E500A95E24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D482C9901F1DE2E500A95E24 /* Main.storyboard */; };
 		D482C9941F1DE2E500A95E24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D482C9931F1DE2E500A95E24 /* Assets.xcassets */; };
 		D482C9971F1DE2E500A95E24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D482C9951F1DE2E500A95E24 /* LaunchScreen.storyboard */; };
@@ -21,9 +23,11 @@
 		D43E22981F21A98200DA3E34 /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = Carthage/Build/iOS/AFNetworking.framework; sourceTree = "<group>"; };
 		D43E229A1F21A98800DA3E34 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		D43E22A01F33EA8100DA3E34 /* Job.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Job.swift; path = ../Job.swift; sourceTree = "<group>"; };
+		D43E22A41F3409CE00DA3E34 /* JobCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobCell.swift; sourceTree = "<group>"; };
+		D43E22A61F35546C00DA3E34 /* JobDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobDetailsController.swift; sourceTree = "<group>"; };
 		D482C9891F1DE2E500A95E24 /* Internship Posting App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Internship Posting App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D482C98C1F1DE2E500A95E24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D482C98E1F1DE2E500A95E24 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D482C98E1F1DE2E500A95E24 /* JobListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobListController.swift; sourceTree = "<group>"; };
 		D482C9911F1DE2E500A95E24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D482C9931F1DE2E500A95E24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D482C9961F1DE2E500A95E24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -74,7 +78,9 @@
 			children = (
 				D43E22A01F33EA8100DA3E34 /* Job.swift */,
 				D482C98C1F1DE2E500A95E24 /* AppDelegate.swift */,
-				D482C98E1F1DE2E500A95E24 /* ViewController.swift */,
+				D482C98E1F1DE2E500A95E24 /* JobListController.swift */,
+				D43E22A61F35546C00DA3E34 /* JobDetailsController.swift */,
+				D43E22A41F3409CE00DA3E34 /* JobCell.swift */,
 				D482C9901F1DE2E500A95E24 /* Main.storyboard */,
 				D482C9931F1DE2E500A95E24 /* Assets.xcassets */,
 				D482C9951F1DE2E500A95E24 /* LaunchScreen.storyboard */,
@@ -174,9 +180,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D482C98F1F1DE2E500A95E24 /* ViewController.swift in Sources */,
+				D43E22A71F35546C00DA3E34 /* JobDetailsController.swift in Sources */,
+				D482C98F1F1DE2E500A95E24 /* JobListController.swift in Sources */,
 				D43E22A11F33EA8100DA3E34 /* Job.swift in Sources */,
 				D482C98D1F1DE2E500A95E24 /* AppDelegate.swift in Sources */,
+				D43E22A51F3409CE00DA3E34 /* JobCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
