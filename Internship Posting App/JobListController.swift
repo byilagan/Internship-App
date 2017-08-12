@@ -17,6 +17,12 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
     
     var jobArray: [Job] = []
     
+    var filePath: String {
+        let manager = FileManager.default
+        let url = manager.urls(for: .documentDirectory, in: .userDomainMask).first
+        return url!.appendingPathComponent("savedJobs").path
+    }
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -79,6 +85,10 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
                     self.jobList.reloadData()
                         
         })
+    }
+    
+    func savedJob(jobToSave: Job) {
+        
     }
 
     override var prefersStatusBarHidden: Bool {
