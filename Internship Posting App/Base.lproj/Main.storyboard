@@ -47,9 +47,9 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date posted:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i8B-Ct-Von">
-                                                    <rect key="frame" x="208.5" y="53" width="45.5" height="21"/>
+                                                    <rect key="frame" x="100" y="53" width="45.5" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="45.5" id="SiT-9z-2Lt"/>
+                                                        <constraint firstAttribute="width" constant="45.5" id="7ff-f2-vHM"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="7"/>
                                                     <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -62,29 +62,44 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TVM-oL-WL9">
-                                                    <rect key="frame" x="259" y="53" width="108" height="21"/>
+                                                    <rect key="frame" x="153" y="53" width="131" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="131" id="D5n-TE-4fm"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="7"/>
                                                     <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CYc-mL-vYa">
+                                                    <rect key="frame" x="292" y="48" width="75" height="26"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="75" id="X1x-f5-EdH"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <state key="normal" title="Save Job">
+                                                        <color key="titleColor" red="0.29411764709999999" green="0.0078431372550000003" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" secondItem="LPU-Kn-cUh" secondAttribute="bottom" constant="8.5" id="8FE-uk-wt3"/>
                                                 <constraint firstItem="TBT-q6-zYR" firstAttribute="leading" secondItem="LPU-Kn-cUh" secondAttribute="trailing" constant="8" id="8XT-eI-2d2"/>
+                                                <constraint firstItem="CYc-mL-vYa" firstAttribute="top" secondItem="68T-BH-ZB1" secondAttribute="top" constant="48" id="8vd-RE-ioc"/>
                                                 <constraint firstItem="13d-DZ-52L" firstAttribute="top" secondItem="TBT-q6-zYR" secondAttribute="bottom" constant="2" id="ESy-D1-GgB"/>
-                                                <constraint firstAttribute="trailing" secondItem="i8B-Ct-Von" secondAttribute="trailing" constant="121" id="HhW-OR-pub"/>
-                                                <constraint firstAttribute="bottom" secondItem="TVM-oL-WL9" secondAttribute="bottom" constant="0.5" id="LR3-Jg-9Cb"/>
-                                                <constraint firstItem="TVM-oL-WL9" firstAttribute="top" secondItem="68T-BH-ZB1" secondAttribute="top" constant="53" id="Tk2-Xj-0c2"/>
                                                 <constraint firstItem="TBT-q6-zYR" firstAttribute="top" secondItem="68T-BH-ZB1" secondAttribute="topMargin" constant="7" id="Tq9-EI-fb3"/>
+                                                <constraint firstAttribute="trailing" secondItem="CYc-mL-vYa" secondAttribute="trailing" constant="8" id="VhJ-3A-Obv"/>
                                                 <constraint firstItem="13d-DZ-52L" firstAttribute="leading" secondItem="LPU-Kn-cUh" secondAttribute="trailing" constant="8" id="W2h-a4-w47"/>
-                                                <constraint firstAttribute="trailing" secondItem="TVM-oL-WL9" secondAttribute="trailing" constant="8" id="lJI-5a-ySd"/>
-                                                <constraint firstItem="i8B-Ct-Von" firstAttribute="top" secondItem="68T-BH-ZB1" secondAttribute="top" constant="53" id="lNw-h1-6ff"/>
-                                                <constraint firstAttribute="bottom" secondItem="i8B-Ct-Von" secondAttribute="bottom" constant="0.5" id="pab-LS-Xkz"/>
+                                                <constraint firstItem="TVM-oL-WL9" firstAttribute="top" secondItem="68T-BH-ZB1" secondAttribute="top" constant="53" id="n5v-eC-c5Y"/>
+                                                <constraint firstAttribute="bottom" secondItem="i8B-Ct-Von" secondAttribute="bottom" constant="0.5" id="n7d-Ft-zDR"/>
+                                                <constraint firstItem="i8B-Ct-Von" firstAttribute="top" secondItem="13d-DZ-52L" secondAttribute="bottom" constant="10" id="pdE-hz-c5k"/>
                                                 <constraint firstItem="LPU-Kn-cUh" firstAttribute="top" secondItem="68T-BH-ZB1" secondAttribute="topMargin" id="qYA-Po-DEI"/>
-                                                <constraint firstItem="TVM-oL-WL9" firstAttribute="leading" secondItem="i8B-Ct-Von" secondAttribute="trailing" constant="5" id="rUv-S7-L3C"/>
+                                                <constraint firstItem="CYc-mL-vYa" firstAttribute="leading" secondItem="TVM-oL-WL9" secondAttribute="trailing" constant="8" id="qpC-mr-aRh"/>
+                                                <constraint firstItem="TVM-oL-WL9" firstAttribute="leading" secondItem="i8B-Ct-Von" secondAttribute="trailing" constant="7.5" id="sZg-eV-ep8"/>
+                                                <constraint firstAttribute="bottom" secondItem="TVM-oL-WL9" secondAttribute="bottom" constant="0.5" id="tdE-3k-Q51"/>
                                                 <constraint firstItem="LPU-Kn-cUh" firstAttribute="leading" secondItem="68T-BH-ZB1" secondAttribute="leadingMargin" id="uBz-qf-CkB"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="13d-DZ-52L" secondAttribute="bottom" constant="23.5" id="uW4-jW-h8q"/>
+                                                <constraint firstAttribute="bottom" secondItem="CYc-mL-vYa" secondAttribute="bottom" constant="0.5" id="w8i-SA-eNN"/>
                                                 <constraint firstItem="TBT-q6-zYR" firstAttribute="leading" secondItem="LPU-Kn-cUh" secondAttribute="trailing" constant="8" id="ySj-ys-sqX"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -158,10 +173,10 @@
             </objects>
             <point key="canvasLocation" x="-774" y="-101"/>
         </scene>
-        <!--View Controller-->
+        <!--Saved Jobs Controller-->
         <scene sceneID="7El-hV-bVt">
             <objects>
-                <viewController id="JoL-5F-b9U" sceneMemberID="viewController">
+                <viewController id="JoL-5F-b9U" customClass="SavedJobsController" customModule="Internship_Posting_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MSI-S5-8Oi"/>
                         <viewControllerLayoutGuide type="bottom" id="QWy-AL-WDS"/>
@@ -250,6 +265,9 @@
                         <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="kNp-q2-4SA"/>
+                    <connections>
+                        <outlet property="savedJobList" destination="INU-vc-da0" id="b7M-Os-tuG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MaJ-qZ-Tr1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

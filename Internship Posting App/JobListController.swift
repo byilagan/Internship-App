@@ -16,6 +16,7 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
     @IBOutlet weak var jobList: UITableView!
     
     var jobArray: [Job] = []
+    var savedJobs: [Job] = []
     
     var filePath: String {
         let manager = FileManager.default

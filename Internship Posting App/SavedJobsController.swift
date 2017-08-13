@@ -8,14 +8,26 @@
 
 import UIKit
 
-class SavedJobsController: UIViewController {
+class SavedJobsController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
-    var savedJobs: [Job] = []
+    @IBOutlet weak var savedJobList: UITableView!
 
+    var savedJobs: [Job] = []
+    
+    override var prefersStatusBarHidden: Bool {return true}
+    
+    var filePath: String {
+        let manager = FileManager.default
+        let url = manager.urls(for: .documentDirectory, in: .userDomainMask).first
+        return url!.appendingPathComponent("savedJobs").path
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        if let data = NSKeyedUnarchiver.unarchiveObject(withFile: filePath) as? [Job] {
+            savedJobs = data
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,7 +35,25 @@ class SavedJobsController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override var prefersStatusBarHidden: Bool {return true}
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return savedJobs.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = self.savedJobList.dequeueReusableCell(withIdentifier: "Job Entry", for: indexPath) as! JobCell
+        
+        cell.jobTitle.text = savedJobs[indexPath.row].title
+        cell.companyName.text = savedJobs[indexPath.row].company
+        cell.postDate.text = savedJobs[indexPath.row].date
+        
+        if let logoString = savedJobs[indexPath.row].logo {
+            if let url = URL(string: logoString) {
+                cell.companyLogo.setImageWith(url)
+            }
+        }
+        
+        return cell
+    }
     
     /*
     // MARK: - Navigation
