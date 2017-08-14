@@ -11,6 +11,7 @@ import UIKit
 class Job: NSObject, NSCoding {
     
     struct Keys {
+        static let _Id = "id"
         static let _Title = "title"
         static let _Company = "company"
         static let _Date = "date"
@@ -20,6 +21,7 @@ class Job: NSObject, NSCoding {
         static let _Logo = "logo"
     }
     
+    var id: String? // unique id
     var title: String? // position title
     var company: String? // company that the position is available for
     var date: String? // date the opening was posted
@@ -28,8 +30,9 @@ class Job: NSObject, NSCoding {
     var applyLink: String? // html markup that holds link to application
     var logo: String? // logo image url
     
-    init (title: String? = nil, company: String? = nil, date: String? = nil, type: String? = nil,
-          jobDescription: String? = nil, applyLink: String? = nil, logo: String? = nil) {
+    init (id: String? = nil, title: String? = nil, company: String? = nil, date: String? = nil, type: String? = nil, jobDescription: String? = nil, applyLink: String? = nil, logo: String? = nil){
+        
+        self.id = id
         self.title = title
         self.company = company
         self.date = date
@@ -42,30 +45,34 @@ class Job: NSObject, NSCoding {
     }
 
     required init?(coder aDecoder: NSCoder) {
+        if let idObj = aDecoder.decodeObject(forKey: Keys._Id) as? String {
+            id = idObj
+        }
         if let titleObj = aDecoder.decodeObject(forKey: Keys._Title) as? String {
             title = titleObj
         }
         if let companyObj = aDecoder.decodeObject(forKey: Keys._Company) as? String {
-            title = companyObj
+            company = companyObj
         }
         if let dateObj = aDecoder.decodeObject(forKey: Keys._Date) as? String {
-            title = dateObj
+            date = dateObj
         }
         if let typeObj = aDecoder.decodeObject(forKey: Keys._Type) as? String {
-            title = typeObj
+            type = typeObj
         }
         if let descriptionObj = aDecoder.decodeObject(forKey: Keys._JobDescription) as? String {
-            title = descriptionObj
+            jobDescription = descriptionObj
         }
         if let linkObj = aDecoder.decodeObject(forKey: Keys._ApplyLink) as? String {
-            title = linkObj
+            applyLink = linkObj
         }
         if let logoObj = aDecoder.decodeObject(forKey: Keys._Logo) as? String {
-            title = logoObj
+            logo = logoObj
         }
     }
     
     func encode(with aCoder: NSCoder) {
+        aCoder.encode(id, forKey: Keys._Id)
         aCoder.encode(title, forKey: Keys._Title)
         aCoder.encode(company, forKey: Keys._Company)
         aCoder.encode(date, forKey: Keys._Date)

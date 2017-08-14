@@ -109,6 +109,7 @@
                                             <outlet property="companyName" destination="13d-DZ-52L" id="eXS-Ag-GSL"/>
                                             <outlet property="jobTitle" destination="TBT-q6-zYR" id="w21-6S-Qm4"/>
                                             <outlet property="postDate" destination="TVM-oL-WL9" id="7xh-h1-bu3"/>
+                                            <outlet property="saveButton" destination="CYc-mL-vYa" id="pPS-fe-FBj"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

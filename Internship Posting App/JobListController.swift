@@ -18,6 +18,8 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
     var jobArray: [Job] = []
     var savedJobs: [Job] = []
     
+    override var prefersStatusBarHidden: Bool { return true }
+    
     var filePath: String {
         let manager = FileManager.default
         let url = manager.urls(for: .documentDirectory, in: .userDomainMask).first
@@ -72,7 +74,8 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
                         
                         for ( _ , subJson):(String, JSON) in jobs {
                             
-                            let newJob = Job( title: subJson["title"].string,
+                            let newJob = Job( id: subJson["id"].string,
+                                              title: subJson["title"].string,
                                               company: subJson["company"].string,
                                               date: subJson["created_at"].string,
                                               type: subJson["type"].string,
@@ -92,11 +95,6 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
         
     }
 
-    override var prefersStatusBarHidden: Bool {
-        
-        return true
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return jobArray.count
     }
@@ -116,5 +114,6 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
         
         return cell
     }
+
 }
 
