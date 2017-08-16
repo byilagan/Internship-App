@@ -11,7 +11,7 @@ import SwiftyJSON
 import AFNetworking
 
 
-class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, SaveButtonDelegate {
     
     @IBOutlet weak var jobList: UITableView!
     
@@ -105,6 +105,8 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
         cell.jobTitle.text = jobArray[indexPath.row].title
         cell.companyName.text = jobArray[indexPath.row].company
         cell.postDate.text = jobArray[indexPath.row].date
+        cell.delegate = self
+        cell.index = indexPath
         
         if let logoString = jobArray[indexPath.row].logo {
             if let url = URL(string: logoString) {
@@ -113,6 +115,26 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
         }
         
         return cell
+    }
+    
+    func saveButtonClick (at index: IndexPath) {
+        print(index)
+        
+        let newSavedJob = jobArray[index.row]
+        
+        // Unarchive savedJobs array
+        if let data = NSKeyedUnarchiver.unarchiveObject(withFile: filePath) as? [Job] {
+            savedJobs = data
+        }
+        
+        // Add job to array 
+        savedJobs.append(newSavedJob)
+        
+        // Archive array 
+        NSKeyedArchiver.archiveRootObject(savedJobs, toFile: filePath)
+        
+        // Change text of button to "Already Saved" and deactivate functionality
+        (jobList.cellForRow(at: index) as? JobCell)?.saveButton.setTitle("Already Saved", for: .disabled)
     }
 
 }

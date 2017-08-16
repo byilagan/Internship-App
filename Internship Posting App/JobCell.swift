@@ -8,6 +8,12 @@
 
 import UIKit
 
+protocol SaveButtonDelegate {
+    
+    func saveButtonClick (at index: IndexPath)
+    
+}
+
 class JobCell: UITableViewCell {
 
     @IBOutlet weak var companyLogo: UIImageView!
@@ -15,6 +21,12 @@ class JobCell: UITableViewCell {
     @IBOutlet weak var companyName: UILabel!
     @IBOutlet weak var postDate: UILabel!
     @IBOutlet weak var saveButton: UIButton!
+    var index: IndexPath!
+    var delegate: SaveButtonDelegate!
+    
+    @IBAction func saveButtonAction (_ sender:UIButton) {
+        self.delegate.saveButtonClick(at: index)
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,3 +40,5 @@ class JobCell: UITableViewCell {
     }
 
 }
+
+
