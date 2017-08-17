@@ -189,12 +189,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="INU-vc-da0">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="INU-vc-da0">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Job Entry" rowHeight="75" id="Nb0-6h-7Ji" customClass="JobCell" customModule="Internship_Posting_App" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Saved Job Entry" rowHeight="75" id="Nb0-6h-7Ji" customClass="JobCell" customModule="Internship_Posting_App" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nb0-6h-7Ji" id="fPd-ll-L9g">
@@ -214,7 +213,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date posted:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bWx-Dz-nYP">
-                                                    <rect key="frame" x="208.5" y="53" width="45.5" height="21"/>
+                                                    <rect key="frame" x="208" y="53" width="46" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="45.5" id="xv3-Gc-Nui"/>
                                                     </constraints>
@@ -263,12 +262,48 @@
                                             <outlet property="postDate" destination="cMa-Nk-WuX" id="MlI-Cf-CJb"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Header" id="QWN-pD-cYd">
+                                        <rect key="frame" x="0.0" y="103" width="375" height="90"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QWN-pD-cYd" id="VtV-Uc-Igu">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LCs-G2-5U1">
+                                                    <rect key="frame" x="141" y="29" width="92" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Clear Jobs"/>
+                                                    <connections>
+                                                        <action selector="clearJobs:" destination="JoL-5F-b9U" eventType="touchUpInside" id="8sN-U1-6sc"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="JoL-5F-b9U" id="qIF-ii-T3S"/>
+                                    <outlet property="delegate" destination="JoL-5F-b9U" id="yYS-sy-vHB"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="INU-vc-da0" firstAttribute="top" secondItem="zfT-qw-WLi" secondAttribute="top" id="2tL-Hz-gss"/>
+                            <constraint firstAttribute="trailing" secondItem="INU-vc-da0" secondAttribute="trailing" id="8MY-nR-a96"/>
+                            <constraint firstItem="INU-vc-da0" firstAttribute="leading" secondItem="zfT-qw-WLi" secondAttribute="leading" id="a3C-mM-SvG"/>
+                            <constraint firstAttribute="bottom" secondItem="INU-vc-da0" secondAttribute="bottom" id="n4C-yl-kac"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="kNp-q2-4SA"/>
+                    <navigationItem key="navigationItem" id="kNp-q2-4SA">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="rxo-pk-t9A">
+                            <view key="customView" contentMode="scaleToFill" id="yAm-Dt-0a5">
+                                <rect key="frame" x="357" y="-42" width="2" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="savedJobList" destination="INU-vc-da0" id="b7M-Os-tuG"/>
                     </connections>

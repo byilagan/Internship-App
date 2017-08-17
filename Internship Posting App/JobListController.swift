@@ -67,7 +67,7 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
                     success: {(operation: URLSessionDataTask, responseObject: Any?) in
                         
                         if let responseObject = responseObject {
-                            print("Response: " + (responseObject as AnyObject).description)
+                            //print("Response: " + (responseObject as AnyObject).description)
                         }
                         
                         let jobs = JSON(responseObject as Any)
@@ -89,10 +89,6 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
                     self.jobList.reloadData()
                         
         })
-    }
-    
-    func savedJob(jobToSave: Job) {
-        
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -127,15 +123,29 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
             savedJobs = data
         }
         
+        for i in 0..<savedJobs.count {
+            print(savedJobs[i].company)
+        }
+        
         // Add job to array 
         savedJobs.append(newSavedJob)
+        
+        //savedJobs.removeAll()
         
         // Archive array 
         NSKeyedArchiver.archiveRootObject(savedJobs, toFile: filePath)
         
         // Change text of button to "Already Saved" and deactivate functionality
-        (jobList.cellForRow(at: index) as? JobCell)?.saveButton.setTitle("Already Saved", for: .disabled)
+        var cell = jobList.cellForRow(at: index) as? JobCell
+        
+        cell?.saveButton.isEnabled = false
+        cell?.saveButton.isUserInteractionEnabled = false
+        cell?.saveButton.setTitle("Already Saved", for: .disabled)
+        
+        
     }
 
+    
+    
 }
 

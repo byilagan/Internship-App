@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import SwiftyJSON
+import AFNetworking
 
 class SavedJobsController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
@@ -22,12 +24,39 @@ class SavedJobsController: UIViewController, UITableViewDelegate, UITableViewDat
         return url!.appendingPathComponent("savedJobs").path
     }
     
+    @IBAction func clearJobs(_ sender: Any) {
+        if let data = NSKeyedUnarchiver.unarchiveObject(withFile: filePath) as? [Job] {
+            savedJobs = data
+        }
+        
+        savedJobs.removeAll()
+        
+        NSKeyedArchiver.archiveRootObject(savedJobs, toFile: filePath)
+        
+        self.savedJobList.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         if let data = NSKeyedUnarchiver.unarchiveObject(withFile: filePath) as? [Job] {
             savedJobs = data
         }
+        
+        print("Loaded Saved Jobs")
+        self.savedJobList.reloadData()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(false)
+        
+        if let data = NSKeyedUnarchiver.unarchiveObject(withFile: filePath) as? [Job] {
+            savedJobs = data
+        }
+        
+        print("Loaded Saved Jobs")
+        self.savedJobList.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,11 +65,13 @@ class SavedJobsController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(savedJobs.count)
         return savedJobs.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.savedJobList.dequeueReusableCell(withIdentifier: "Job Entry", for: indexPath) as! JobCell
+        
+        let cell = self.savedJobList.dequeueReusableCell(withIdentifier: "Saved Job Entry", for: indexPath) as! JobCell
         
         cell.jobTitle.text = savedJobs[indexPath.row].title
         cell.companyName.text = savedJobs[indexPath.row].company
@@ -53,6 +84,14 @@ class SavedJobsController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return tableView.dequeueReusableCell(withIdentifier: "Header")
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 88
     }
     
     /*
